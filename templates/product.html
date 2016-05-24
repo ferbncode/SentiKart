@@ -1,0 +1,137 @@
+
+<head>
+	{% block head %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="author" content="ferbncode" >
+		<meta charset="utf-8">
+		<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/semantic.min.css')}}">
+		<script type="text/javascript" src="{{url_for('static', filename='css/semantic.min.js')}}"></script>
+		<script type="text/javascript" src="{{url_for('static', filename='css/semantic.js')}}"></script>
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/semantic.css')}}">
+
+		<!-- <link href="../static/css/main.css" rel="stylesheet" type="text/css" /> -->
+
+		<!-- SUPPORT FOR IE6-8 OF HTML5 ELEMENTS -->
+		<!--[if lt IE 9]>
+					<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			<![endif]-->
+
+		<!-- <link rel="shortcut icon" href="{{ url_for('static', filename='ico/favicon.ico') }}"> -->
+			<title>{% block title %}Statistics - SentiKart{% endblock %}</title>
+		{% endblock %}
+	</head>
+	
+	<!--Navbar-->
+
+	<div class="ui pointing menu">
+  <a class="item" href="/">
+    SentiKart
+  </a>
+  <a class="item" href="/main_product">
+    Products
+  </a>
+  <a class="item" href="/services">
+    Services
+  </a>
+  <a class="item" href="/qanda">
+    Q and A
+  </a>
+  <div class="right menu">
+  <div>
+  		<a class="item">Logout</a>
+   
+  	
+  </div>
+    <div class="item">
+      <div class="ui transparent icon input">
+        <input placeholder="Search..." type="text">
+        <i class="search link icon"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+	<!--end of Navbar-->
+<div style="position: relative;top:30px;left:-15px;">
+<!--sidebar-->
+<div class="col-md-3">
+<div class="ui secondary vertical pointing menu">
+<h3 class="text-center">SentiKart Product Analysis</h3>
+
+<a class="active item" href="/services">
+    Find and analyse
+  </a>
+<a class="item" href="/qanda">
+            Mobiles
+          </a>
+          <div class="ui vertical menu">
+            <a class="active teal item" href="/newquestion">
+              Asus Zenfone 5
+            </a>
+            <a class="active teal item" href="#">
+              Red Mi 5
+            </a>
+          </div>
+
+          <a class="item" href="/qanda">
+            Books
+          </a>
+          <div class="ui vertical menu">
+            <a class="active teal item" href="/newquestion">
+              The Chosen One
+            </a>
+            <a class="active teal item" href="#">
+              Heaven's Door
+            </a>
+          </div>
+
+          <a class="item" href="/qanda">
+            Laptops
+          </a>
+          <div class="ui vertical menu">
+            <a class="active teal item" href="/newquestion">
+              Hp Envy
+            </a>
+            <a class="active teal item" href="#">
+              Laptop B460
+            </a>
+          </div>
+
+        </div>
+</div>
+
+<div class="col-md-8">
+
+<!--end of sidebar-->
+
+{% block div%}
+
+
+<div >
+
+<h3 class="text-center">Find a new product and analyse its Sentiment</h3>
+<h4 class="text-center"><i>We do review analysis of the products you want a sentimental analysis of.</i></h4>
+<div class="ui action input " style="position: absolute;top: 140px;left: 270px;">
+<form method="post">
+  <input placeholder="Search..." type="text" value="{{request.form.productname}}" name="productname">
+  <button type="submit" class="ui button">Analyse</button>
+</form>
+</div>
+
+<!--This div contains the graph and the comment section if it is the product page or contains the search bar and the corresponding search results-->
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+{%endblock%}

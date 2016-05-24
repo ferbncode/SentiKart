@@ -1,0 +1,35 @@
+{% extends 'base.html'%}
+{%block title%}Question and Answer{% endblock %}
+
+{% block head %}
+
+{{super()}}
+
+ <script src="{{url_for('static',filename='js/jquery.min.js')}}"></script>
+
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid well qanda">
+<h3 class="text-center text-primary">The Sentikart Q and A page</h3>
+<div class="row">
+<div class="col-md-4"> 
+<button class="btn btn-info" type="button" onclick = "window.location.href='/newquestion'">Ask a question</button>
+</div>
+<div class="row"> 
+<div class="col-md-6">
+<input type="text" class="input-sm">
+</div>
+<div>
+<button class="btn btn-default" type="button" onclick = "window.location.href='/search'"><i class="fa fa-search"></i></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-1"></div>
+<div class="well col-md-10">
+</div>
+<div class="col-md-1"></div>
+{%endblock%}

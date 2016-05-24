@@ -1,0 +1,43 @@
+{%extends "base.html"%}
+{%block head%}
+{{super()}}
+{%endblock%}
+{%block body%}
+{{super()}}
+<div class="row">
+<div class="col-md-2 well"></div>
+<div class="col-md-8" style="position: absolute;top: 80px;">
+<div class="ui two column middle aligned very relaxed stackable grid">
+  <div class="column">
+    <div class="ui form">
+      <div class="field">
+        <label>Username</label>
+        <div class="ui left icon input">
+          <input placeholder="Username" type="text">
+          <i class="user icon"></i>
+        </div>
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <div class="ui left icon input">
+          <input type="password">
+          <i class="lock icon"></i>
+        </div>
+      </div>
+      <div class="ui blue submit button">Login</div>
+    </div>
+  </div>
+  <div class="ui vertical divider">
+    Or
+  </div>
+  <div class="center aligned column">
+    <div class="ui big green labeled icon button">
+      <i class="signup icon"></i>
+      Sign Up
+    </div>
+  </div>
+</div>
+</div>
+<div class="col-md-2"></div>
+</div>
+{%endblock%}

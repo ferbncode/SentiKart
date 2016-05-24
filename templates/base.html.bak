@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	{% block head %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}" />
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="author" content="">
+		<meta charset="utf-8">
+		<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/semantic.min.css')}}">
+		<script type="text/javascript" src="{{url_for('static', filename='css/semantic.min.js')}}"></script>
+		<script type="text/javascript" src="{{url_for('static', filename='css/semantic.js')}}"></script>
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/semantic.css')}}">
+
+		<!-- <link href="../static/css/main.css" rel="stylesheet" type="text/css" /> -->
+
+		<!-- SUPPORT FOR IE6-8 OF HTML5 ELEMENTS -->
+		<!--[if lt IE 9]>
+					<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			<![endif]-->
+
+		<!-- <link rel="shortcut icon" href="{{ url_for('static', filename='ico/favicon.ico') }}"> -->
+			<title>{% block title %} - SentiKart{% endblock %}</title>
+		{% endblock %}
+	</head>
+	<body>
+	<div class="ui pointing menu">
+  <a class="item" href="/">
+    SentiKart
+  </a>
+  <a class="item" href="/main_product">
+    Products
+  </a>
+  <a class="item" href="/services">
+    Services
+  </a>
+  <a class="item" href="/qanda">
+    Q and A
+  </a>
+  <div class="right menu">
+  <div>
+  		<a class="item">Logout</a>
+   
+  	
+  </div>
+    <div class="item">
+      <div class="ui transparent icon input">
+        <input placeholder="Search..." type="text">
+        <i class="search link icon"></i>
+      </div>
+	<div class="container-fluid">
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+   	  	<!-- Brand and toggle get grouped for better mobile display -->
+          	 <div class="navbar-header">
+    	  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				  <span class="sr-only">Toggle navigation</span>
+        		  <span class="icon-bar"></span>
+            	  <span class="icon-bar"></span>
+        		  <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">SentiKart</a>
+    </div>
+  </div>
+</div>
+	</body>
+      <ul class="nav navbar-nav navbar-right">
+          <ul class="dropdown-menu">
+            <li role="separator" class="divider"></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+</div>
+</body>
+{% block body %}{% endblock %}
+<body>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+{% extends 'qandabase.html'%}
+{%block title%}Question and Answer{% endblock %}
+
+{% block head %}
+
+{{super()}}
+
+ <script src="{{url_for('static',filename='js/jquery.min.js')}}"></script>
+
+{% endblock %}
+
+{% block body %}
+{{super()}}
+{%endblock%}
+
+
+{%block div%}
+<div>
+  {% for qanda in queslist %}
+    <!--Answer starts here -->
+    <div class="">
+     <div class="content">
+     <div class="text">
+        <p><h3><i><strong>Q. </strong></i>{{qanda[1]}}</h3></p>
+      </div>
+      <div style="position: relative;left: 30px;max-width: 600px;">
+        <p>{{qanda[2]}}<br/>
+      <a class="author">{{qanda[0]}}</a><p></div>
+    </div>
+    <h4><i>Answers</i></h4>
+    {%for i in range((qanda[3])|length)%}
+    <div class="text" style="position: relative;left: 30px;max-width: 600px">
+    <p>{{qanda[3][i]}}<br/>
+    <a class="author">{{qanda[4][i]}}</a></p><br/>
+    <div class="ui labeled button" tabindex="0">
+     <div class="ui button">
+	<i class="arrow up icon"></i> Upvote
+	</div>
+	 <a class="ui basic left pointing label">
+	   1,048
+	 </a>
+      </div>
+          <p><br/></p>
+    </div>
+    {%endfor%}
+    <!---->
+    
+  </div>
+  <br/>
+  {% endfor %}
+</div>
+{% endblock %}
+	
+
+

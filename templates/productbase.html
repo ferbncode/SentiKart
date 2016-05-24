@@ -1,0 +1,59 @@
+{% extends 'base.html'%}
+{%block title%}Question and Answer{% endblock %}
+
+{% block head %}
+
+{{super()}}
+
+ <script src="{{url_for('static',filename='js/jquery.min.js')}}"></script>
+
+{% endblock %}
+
+{% block body %}
+<div style="position: relative;top: 30px;">
+<div class="row">
+<div class="col-md-3">
+<div class="ui secondary vertical pointing menu">
+<h3 class="text-center">SentiKart Product Analysis</h3>
+<a class="item" href="/qanda">
+            Mobiles
+          </a>
+          <div class="ui vertical menu">
+            <a class="active teal item" href="/newquestion">
+              Asus Zenfone 5
+            </a>
+            <a class="active teal item" href="#">
+              Red Mi 5
+            </a>
+          </div>
+<a class="item" href="/qanda">
+            Books
+          </a>
+          <div class="ui vertical menu">
+            <a class="active teal item" href="/newquestion">
+              Data Structurs Made Easy
+            </a>
+            <a class="active teal item" href="#">
+              Data Structures and algorithms in depth
+            </a>
+          </div>
+        </div>
+<a class="item" href="/qanda">
+            <p>Laptops</p>
+          </a>
+          <div class="ui vertical menu">
+            <a class="active teal item" href="/newquestion">
+              <p>Lenovo B460</p>
+            </a>
+            <a class="active teal item" href="#">
+              Hp envy 1200
+            </a>
+          </div>
+        </div>
+<div class="col-md-8">
+{%block div%}
+{% endblock %}
+</div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{
+  "title": "Sentikart-Addon",
+  "name": "sentikart-addon",
+  "version": "0.0.1",
+  "description": "Sentimental Analysis addon",
+  "main": "index.js",
+  "author": "suyashgargutkarshraj",
+  "engines": {
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
+  },
+  "license": "MIT",
+  "keywords": [
+    "jetpack"
+  ]
+}

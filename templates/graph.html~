@@ -1,0 +1,253 @@
+
+
+
+
+<head>
+	{% block head %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="author" content="">
+		<meta charset="utf-8">
+		<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/semantic.min.css')}}">
+		<script type="text/javascript" src="{{url_for('static', filename='css/semantic.min.js')}}"></script>
+		<script type="text/javascript" src="{{url_for('static', filename='css/semantic.js')}}"></script>
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/semantic.css')}}">
+
+		<!-- <link href="../static/css/main.css" rel="stylesheet" type="text/css" /> -->
+
+		<!-- SUPPORT FOR IE6-8 OF HTML5 ELEMENTS -->
+		<!--[if lt IE 9]>
+					<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			<![endif]-->
+
+		<!-- <link rel="shortcut icon" href="{{ url_for('static', filename='ico/favicon.ico') }}"> -->
+			<title>{% block title %}Statistics - SentiKart{% endblock %}</title>
+		{% endblock %}
+	</head>
+	
+	<!--Navbar-->
+
+	<div class="ui pointing menu">
+  <a class="item" href="/">
+    SentiKart
+  </a>
+  <a class="item" href="/products">
+    Products
+  </a>
+  <a class="item" href="/services">
+    Services
+  </a>
+  <a class="item" href="/qanda">
+    Q and A
+  </a>
+  <div class="right menu">
+  <div>
+  		<a class="item">Logout</a>
+   
+  	
+  </div>
+    <div class="item">
+      <div class="ui transparent icon input">
+        <input placeholder="Search..." type="text">
+        <i class="search link icon"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+	<!--end of Navbar-->
+<div style="position: relative;left: 30px;">
+<!--sidebar-->
+<div class="col-md-3">
+<div class="ui secondary vertical pointing menu">
+<h3 class="text-center">SentiKart Q and A</h3>
+<a class="item" href="/qanda">
+            Q and A
+          </a>
+          <div class="ui vertical menu">
+            <a class="active teal item" href="/newquestion">
+              Have a Question?
+            </a>
+            <a class="active teal item" href="#">
+              Answer a Question
+            </a>
+          </div>
+
+          <a class="item" href="/qanda">
+            Q and A
+          </a>
+          <div class="ui vertical menu">
+            <a class="active teal item" href="/newquestion">
+              Have a Question?
+            </a>
+            <a class="active teal item" href="#">
+              Answer a Question
+            </a>
+          </div>
+
+          <a class="item" href="/qanda">
+            Q and A
+          </a>
+          <div class="ui vertical menu">
+            <a class="active teal item" href="/newquestion">
+              Have a Question?
+            </a>
+            <a class="active teal item" href="#">
+              Answer a Question
+            </a>
+          </div>
+
+        </div>
+</div>
+</div>
+<div class="col-md-8">
+
+<!--end of sidebar-->
+
+{% block div%}
+
+{%if pageType == 'areachart'%}
+<hr>
+<div class="row container-fluid">
+<div class='col-md-1 topdiv'></div>
+<div class='productpage container-fluid well'>
+<div class="row container-fluid">
+<div class="col-md-4 container-fluid">
+	<h1 class="text-primary">{{product_name}}</h1>
+	<div class='product_image'>
+	<img src="{{url_for('static', filename="{}.jpeg".format(product_name))}}" class="img-responsive proimage" alt={{product_name}}>
+	</div>
+</div>
+<div class="col-md-4"></div>
+
+	<!--div class="summary container-fluid">
+		<h4 class="text-center text-info">Calculated Sentiment Average</h4>
+		<ul>
+		{% for i in range(length_of_product) %}
+			<li>{{CONT_DICT[product_name][i][0]}}</li>
+		{% endfor %}
+		</ul>
+		<p class="text-center"><font size='0.5px'>(scroll down for a detailed analysis)</font></p>
+	</div>
+</div-->
+<div class="col-md-4">
+	<div class="price pricediv well">
+		<h4 class="text-center text-primary">Price</h4>
+		<h5 class="text-center text-danger">Rs.11240</h5>
+	</div>
+	<div class="well bestincategory pricediv">
+		<h4 class="text-center text-danger">Best sentiment in this category is for</h4>
+		<h5 class="text-center text-info">Red Mi 5</h5>
+	</div>
+</div>
+</div>
+</div>
+<div class="col-md-1 bottomdiv"></div>
+</div>
+{%endif%}
+	
+<div>
+		<h4 style="position:relative; left:30px;top:10px">SENTIMENT STATISTICS - {{ product_name }}</h4>
+</div>
+<div style="position:relative; left:30px;top:20px">
+{% for i in range(length_of_product) %}
+<!-- Standard button -->
+<button type="button" class="btn btn-default" onclick = "window.location.href='{{CONT_DICT[product_name][i][1]}}'")>{{CONT_DICT[product_name][i][0]}}</button>
+{%endfor%}
+ <p class="btn btn-link"><a href="/">Home</a></p>
+<div class="graph" style="position:relative; top:50px">
+{% if pageType == 'graph' %}
+		<div id={{ chartID|safe }} class="chart" style="height: 100px; width: 500px"></div>
+		<script>
+			var chart_id = {{ chartID|safe }}
+			var series = {{ series|safe }}
+			var title = {{ title|safe }}
+			var xAxis = {{ xAxis|safe }}
+			var yAxis = {{ yAxis|safe }}
+			var chart = {{ chart|safe }}
+		</script>
+			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+			<script src="//code.highcharts.com/highcharts.js"></script>
+			<script src="../static/graph.js"></script>
+{% endif %}
+{% if pageType == 'graph2' %}
+		<div id={{ chartID|safe }} class="chart" style="height: 100px"></div>
+		<script>
+			var chart_id = {{ chartID|safe }}
+			var series = {{ series|safe }}
+			var title = {{ title|safe }}
+			var xAxis = {{ xAxis|safe }}
+			var yAxis = {{ yAxis|safe }}
+			var chart = {{ chart|safe }}
+		</script>
+			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+			<script src="//code.highcharts.com/highcharts.js"></script>
+			<script src="../static/graph.js"></script>
+{% endif %}
+{% if pageType == 'graph3' %}
+		<div id={{ chartID|safe }} class="chart" style="height:100px"></div>
+		<script>
+			var chart_id = {{ chartID|safe }}
+			var series = {{ series|safe }}
+			var title = {{title|safe }}
+			var chart = {{ chart|safe }}
+			var yAxis = {{ yAxis|safe }}
+			var xAxis = {{ xAxis|safe }}
+		</script>
+			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+			<script src="//code.highcharts.com/highcharts.js"></script>
+			<script src="../static/graph2.js"></script>
+{% endif %}
+{% if pageType == 'piechart' %}
+		<div id={{ chartID| safe }} class="chart" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+		<script>
+			var chart_id = {{ chartID|safe }}
+			var series = {{ series|safe }}
+			var title = {{title|safe }}
+		</script>
+			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+			<script src="//code.highcharts.com/highcharts.js"></script>
+			<script src="//code.highcharts.com/modules/exporting.js"></script>
+			<script src="../static/pie.js"></script>
+{% endif %}
+{%if pageType == 'areachart' %}
+		<div id={{chartID|safe }} class ="chart" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+		<script>
+			var chart_id = {{chartID | safe }}
+			var series = {{ series|safe }}
+			var title = {{title|safe }}
+
+		</script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+			<script src="//code.highcharts.com/highcharts.js"></script>
+			<script src="//code.highcharts.com/modules/exporting.js"></script>
+			<script src="../static/area.js"></script>
+{% endif %}
+</div>
+{% endblock %}
+</div></div>
+<!--footer id="footer">
+					<div class="6u">
+					<hr />
+						<h6>Contact Us</h6>
+							<div style="position:relative;top:5px">
+							<ul class="alt">
+							<li><a href="/about"><font size=1>About Us</font></a></li>
+							<li style="position:relative;left:150px"><a href="https://github.com/clearnote01"><font size=1>Github(clearnote01)</font></a></li>
+							<li style="position:relative; left:300px"><a href="https://github.com/ferbncode"><font size=1>Github(ferbncode)</font></a></li>
+							</ul>
+							</div>
+							</div>
+							<div style="position:relative; top:15px">
+							<hr />
+							</div></footer>
+<style>
+.alt li{
+display: inline;
+}
+</style>
+</div>
+</html-->

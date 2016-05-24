@@ -1,0 +1,40 @@
+{% extends 'qandabase.html'%}
+{%block title%}Question and Answer{% endblock %}
+
+{% block head %}
+
+{{super()}}
+
+ <script src="{{url_for('static',filename='js/jquery.min.js')}}"></script>
+
+{% endblock %}
+
+{% block body %}
+{{super()}}
+{%endblock%}
+
+
+{%block div%}
+<div>
+  {% for qanda in Unanswered %}
+    <!--Answer starts here -->
+    <div class="">
+     <div class="content">
+     <div class="text">
+        <p><h3><i><strong>Q. </strong></i>{{qanda[1]}}</h3></p>
+      </div>
+      <div style="position: relative;left: 30px;max-width: 600px;">
+        <p>{{qanda[2]}}<br/>
+      <a class="author">{{qanda[0]}}</a></p>
+      <button class="ui primary button">
+      <i class="icon edit"></i>Answer
+      </button>
+      </div>
+    </div>
+    <!---->
+  </div>
+  </div>
+  <br/>
+  {% endfor %}
+</div>
+{% endblock %}

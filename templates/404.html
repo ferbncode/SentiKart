@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{%block title%}Page is not there - Senti e-commerce{% endblock %}
+{%block head%}
+	{{super()}}
+{%endblock%}
+
+<title>About</title>
+{%block body%}
+
+
+<img src="{{url_for('static',filename='images/404.jpg')}}" height="500" width="1000" style="margin-top:30px;text-align:center">
+<div style="text-align:center">
+		<p> <h2>The pilot seems off duty (404) </h2> </p>
+</div>
+{% endblock %}

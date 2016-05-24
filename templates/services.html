@@ -1,0 +1,153 @@
+{%extends 'base.html'%}
+
+{%block title%}
+Trends of Services - A twitter analysis
+{%endblock%}
+{%block head%}
+{{super()}}
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/semantic.min.css')}}">
+<script type="text/javascript" src="{{url_for('static', filename='css/semantic.min.js')}}"></script>
+{%endblock%}
+{%block body%}
+
+
+<div style="position: relative;top: 30px;">
+<div class="row">
+<div class="col-md-3 col-xs-6">
+<div class="ui secondary vertical pointing menu">
+<h3 class="text-center">SentiKart Services</h3>
+  <a class="active item" href="/services">
+    Find and analyse
+  </a>
+  <a class="item">
+    Food in Banglore
+  </a>
+    <div class="ui vertical menu">
+    {% for foodcourt in SERV_DICT.keys() %}
+  <a class="active teal item" href='{{SERV_DICT[foodcourt][0]}}'>
+    {{ foodcourt }}
+    <div class="ui teal left label">{{ SERV_DICT[foodcourt][2] }}</div>
+  </a>
+ 	{%endfor%}
+  <div class="item">
+    <div class="ui transparent icon input">
+      <input placeholder="Search foodcourt..." type="text">
+      <i class="search icon"></i>
+    </div>
+  </div>
+</div>
+  <a class="item">
+    Malls in Banglore
+  </a>
+  <div class="ui vertical menu">
+  {% for court in MALL_DICT.keys() %}
+  <a class="active teal item" href="{{ MALL_DICT[court][0]}}">
+    {{ court }}
+    <div class="ui teal left label">{{ MALL_DICT[court][2] }}</div>
+  </a>
+ 	{%endfor%}
+  <div class="item">
+    <div class="ui transparent icon input">
+      <input placeholder="Search mall..." type="text">
+      <i class="search icon"></i>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<div class=" col-md-8 col-xs-6 well" style="height: 400px">
+{%if pageType=="normal"%}
+<h3 class="text-center">Find a new service and analyse its Sentiment</h3>
+<h4 class="text-center"><i>We do twitter analysis of the services you want a sentimental analysis of.</i></h4>
+<div class="ui action input " style="position: absolute;top: 140px;left: 270px;">
+  <input placeholder="Search..." type="text">
+  <button class="ui button">Analyse</button>
+</div>
+{%endif%}
+<!--This div contains the graph and the comment section if it is the product page or contains the search bar and the corresponding search results-->
+</div>
+</div>
+{% if pageType == "product" %}
+<div class="row">
+<div class="col-md-3"></div>
+<div class="col-md-8 well">
+	<!--comment code starts here-->
+	<div class="ui comments">
+  <h3 class="ui dividing header">Comments</h3>
+  <div class="comment">
+    <div class="content">
+      <a class="author">Matt</a>
+      <div class="metadata">
+        <span class="date">Today at 5:42PM</span>
+      </div>
+      <div class="text">
+        How accurate!
+      </div>
+      <div class="actions">
+        <a class="reply">Reply</a>
+      </div>
+    </div>
+  </div>
+  <div class="comment">
+    
+    <div class="content">
+      <a class="author">Elliot Fu</a>
+      <div class="metadata">
+        <span class="date">Yesterday at 12:30AM</span>
+      </div>
+      <div class="text">
+        <p>This has been very useful for my research. Thanks as well!</p>
+      </div>
+      <div class="actions">
+        <a class="reply">Reply</a>
+      </div>
+    </div>
+    <div class="comments">
+      <div class="comment">
+        <div class="content">
+          <a class="author">Jenny Hess</a>
+          <div class="metadata">
+            <span class="date">Just now</span>
+          </div>
+          <div class="text">
+            Sentikart you are always so right :)
+          </div>
+          <div class="actions">
+            <a class="reply">Reply</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="comment">
+    
+    <div class="content">
+      <a class="author">Joe Henderson</a>
+      <div class="metadata">
+        <span class="date">5 days ago</span>
+      </div>
+      <div class="text">
+        Dude, this is awesome. Thanks so much
+      </div>
+      <div class="actions">
+        <a class="reply">Reply</a>
+      </div>
+    </div>
+  </div>
+  <form class="ui reply form">
+    <div class="field">
+      <textarea></textarea>
+    </div>
+    <div class="ui blue labeled submit icon button">
+      <i class="icon edit"></i> Add Reply
+    </div>
+  </form>
+</div>
+	<!--ends here-->
+</div>
+</div>
+</div>
+{%endif%}
+
+{%endblock%}

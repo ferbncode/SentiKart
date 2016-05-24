@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{%block title%}Senti e-commerce{% endblock %}
+{% block head %}
+{{super()}}
+ <script src="{{url_for('static',filename='js/jquery.min.js')}}"></script>
+		<!--script src="{{url_for('static',filename='js/skel.min.js')}}"></script>
+		<script src="{{url_for('static',filename='js/skel-layers.min.js')}}"></script>
+		<script src="{{url_for('static',filename='js/init.js')}}"></script-->
+			<link rel="stylesheet" href="{{url_for('static',filename='css/skel.css')}}" />
+			<link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}" />
+			<link rel="stylesheet" href="{{url_for('static',filename='css/style-xlarge.css')}}" />
+{% endblock %}
+{%block body%}
+<body id="top">
+		<!-- Header >
+			<header id="header" class="skel-layers-fixed">
+			</header-->
+
+		<!-- Banner -->
+			<section id="banner">
+				<div class="inner">
+					<h2>Sentikart</h2>
+					<p>This is all that matters!!</p>
+					<ul class="actions">
+						<li><a href="#down" class="button big alt" style="background-color:#342424">Learn More</a></li>
+					</ul>
+				</div>
+			</section>
+		<a name="down"></a>
+		<!-- One -->
+			<section id="one" class="wrapper style1">
+				<header class="major">
+					<h2></h2>
+					<p>We do a sentimental analysis of user reviews to present you the best statistics.</p>
+				</header>
+				<div class="container">
+					<div class="row">
+						<div class="4u">
+							<section class="special box">
+								<i class="icon fa-area-chart major" style="background-color:#DF0101"></i>
+								<h3>Our Belief</h3>
+								<p>We belive that user reviews present the best of what a product really is.</p>
+							</section>
+						</div>
+						<div class="4u" id="yellow box">
+							<section class="special box">
+								<i class="icon fa-refresh major" style="background-color:#FFFF00"></i>
+								<h3>Get it all</h3>
+								<p>You get the data of user reviews viewed in awesome manner.</p>
+							</section>
+						</div>
+						<div class="4u" id="green-box" >
+							<section class="special box">
+								<i class="icon fa-cog major" style="background-color:#088A08"></i>
+								<h3>Hit it</h3>
+								<p>Hit the search bar to find out.</p>
+							</section>
+						</div>
+					</div>
+				</div>
+			</section>
+{% endblock %}
+</html>

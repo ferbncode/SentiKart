@@ -1,0 +1,115 @@
+
+
+{% extends "base.html" %}
+
+{%block title%}SentiKart{% endblock %}
+
+{% block head %}
+
+{{super()}}
+
+ <meta name="viewport" content="width=device-width", initial-scale="1.0">
+
+ <script src="{{url_for('static',filename='js/jquery.min.js')}}"></script>
+
+{% endblock %}
+
+{%block body%}
+<div style="position: relative;top: 30px">
+<div class="row">
+  <div class="col-md-3 col-xs-6">
+    <div class="ui secondary vertical pointing menu">
+      <h3 class="text-center">SentiKart</h3>
+      <a class="active item" href="/services">
+        What is SentiKart?
+      </a>
+      <a class="item" href='/trend/ASUS ZENFONE 5_OverAll'>
+        Products
+      </a>
+        <div class="ui vertical menu">
+          <a class="active teal item" href='#'>
+            What is in here?
+          </a>
+          <a class="active teal item" href='#'>
+            What do we do here?
+          </a>
+          <div class="item">
+            <div class="ui transparent icon input">
+              <input placeholder="Search product..." type="text">
+              <i class="search icon"></i>
+            </div>
+          </div>
+        </div>
+      <a class="item" href='/services'>
+        Services
+      </a>
+        <div class="ui vertical menu">
+          <a class="active teal item" href="#">
+            What is in here?
+          </a>
+          <a class="active teal item" href="#">
+            What do we do here?
+          </a>
+            <div class="item">
+                <div class="ui transparent icon input">
+                  <input placeholder="Search service..." type="text">
+                  <i class="search icon"></i>
+                </div>
+            </div>
+        </div>
+          <a class="item" href="/qanda">
+            Q and A
+          </a>
+          <div class="ui vertical menu">
+            <a class="active teal item" href="/newquestion">
+              Have a Question?
+            </a>
+            <a class="active teal item" href="answer_question">
+              Answer a Question
+            </a>
+          </div>
+        </div>
+      </div>
+  <div class="col-md-8" >
+  <div class="well">
+  <!--Images here-->
+  <div class="row">
+  <div class="col-md-6">
+  <img src="{{url_for('static',filename='images/banner.jpg')}}" style="max-height: 250px;">
+  </div>
+  <div class="col-md-6">
+  <img src="{{url_for('static',filename='images/banner2.png')}}" style="max-height: 250px; width:370px;">
+  </div>
+  </div>
+  <h3 class="text-center"><i>"Analysing reviews of products and services to present the best statistics."</i></h3>
+</div>
+  <!--End Images-->
+  <div style="height: 550px;position: relative;top: 20px;">
+
+<p id='one'><ul><li><h5><strong>What is SentiKart?</strong></h5></li>
+              <p>SentiKart is a system that analyses large amount of reviews of a product on e-commerce sites gathers sentiment pertaining to the product and represents the trends in an intelligible and attractive form.</p>
+              <li><h5><strong>Why does it matter?</strong></h5></li>
+              <p>According to an online survey, 88% of consumers trust online reviews as much as personal recommendations.
+              Nearly 9 in 10 consumers have read online reviews to determine the quality of a local business, and 39% do so on a regular basis.The survey shows how much more regularly people are reading reviews, clearly highlighting the need for local businesses to attract more reviews and actively manage their online reputation.
+          </p><p>
+          So we can infer that in the present scenario, customer reviews can make or break e-commerce industry and it is essential for the stake-holders to monitor the sentiment trends for improvement of user experience.
+              </p><p>SentiKart provides a solution to e-commerce sites to easily monitor trends. Meanwhile, also giving an interface to prospective buyers to search a product in our database to see sentiments of thousands of reviews without going through them manually.</p>
+              <li><h5><strong>How does it work?</strong></h5></li>
+              <p>SentiKart first creates a database of the reviews of the product by scraping the e-commerce site with the aid of python and the module 'Beautiful Soup'.
+              Each review is then passed through an indigenous sentimental analysis model which calculates the overall sentiment in the reviews. For certain products, sentiments of some other attributes are also calculated. For example, a mobile phone may have attributes such as camera, performance, looks, service, etc.</p>
+              <p>Now to extract valuable info, the data is plotted with respect to time using 'Highcharts.com' to represent the changing  trends. It also calculates the overall sentiment and represents it using pie charts.</p></ul>
+
+            <hr style="position:relative; top:40px" />
+
+
+  </div>
+  
+
+  </div>
+
+
+  </div>
+  </div>
+{%endblock%}
+      
+

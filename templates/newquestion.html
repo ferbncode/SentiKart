@@ -1,0 +1,47 @@
+{% extends 'qandabase.html' %}
+{%block head%}
+{{super()}}
+{% endblock %}
+{%block body%}
+{{super()}}
+{%endblock%}
+{%block div%}
+
+<form class="ui reply form" action="/newquestion" method="post">
+<h4> Question </h4>
+<div class="ui fluid icon input">
+  <input placeholder="Your Question Here ..." type="text" value="{{request.form.MainQuest}}" name="MainQuest">
+</div>
+<div class="ui fluid action input">
+</div>
+
+<h5>Description</h5>
+
+
+    <div class="field">
+      <textarea  value="{{request.form.description}}" name="description"></textarea>
+    </div>
+    <div>
+      <button class="ui primary button" type="submit">
+        Save
+      </button>
+</form>
+      <button class="ui button" onclick="window.location.href='/qanda'" >
+        Discard
+      </button>
+    </div>
+<!--div class="row" style="position: relative;top: 30px;left: 16px;">
+<div class="col-md-9"></div>
+<div class="col-md-3">
+<button class="ui primary button">
+  Save
+</button>
+<button class="ui button">
+  Discard
+</button>
+</div>
+</div-->
+
+{%endblock%}
+
+
