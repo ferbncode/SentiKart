@@ -2,4 +2,4 @@ Flask==0.10.1
 gunicorn==19.6.0
 Jinja2==2.7.2
 flask-wtf
-flask.ext.login
+flask-login
